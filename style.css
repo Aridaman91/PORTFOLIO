@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f0f0f0;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background: linear-gradient(45deg, #3b3b3b, #1f1f1f);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #0d6efd;
+    animation: colorPulse 3s infinite alternate;
+}
+
+@keyframes colorPulse {
+    0% { color: #0d6efd; }
+    100% { color: #ffa500; }
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #0d6efd;
+    left: 0;
+    bottom: -4px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+#home {
+    background: url('hero-image.jpg') no-repeat center/cover;
+    padding: 6em 2em;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#home h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    animation: zoomIn 1.5s ease forwards;
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1); }
+}
+
+#home p {
+    font-size: 1.2em;
+    margin-top: 1em;
+    opacity: 0.8;
+}
+
+button {
+    padding: 0.7em 1.5em;
+    color: white;
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    margin-top: 2em;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.4);
+}
+
+/* Enhanced Skills and Project Cards */
+.skill-card, .project-card {
+    display: inline-block;
+    margin: 1em;
+    padding: 1.5em;
+    background: #222;
+    color: #0d6efd;
+    border-radius: 12px;
+    transition: transform 0.4s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.skill-card::before, .project-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 165, 0, 0.15);
+    transform: skewY(30deg);
+    transition: top 0.3s ease;
+    z-index: -1;
+}
+
+.skill-card:hover::before, .project-card:hover::before {
+    top: 100%;
+}
+
+.skill-card:hover, .project-card:hover {
+    transform: scale(1.08);
+    background: #333;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+}
+
+.skill-card, .project-card {
+    padding: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* Form Inputs */
+form input, form textarea {
+    width: 100%;
+    margin: 0.5em 0;
+    padding: 0.8em;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+form input:focus, form textarea:focus {
+    background-color: #222;
+    border-color: #0d6efd;
+}
+
+form button {
+    width: 100%;
+    padding: 0.7em;
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer {
+    padding: 2em;
+    text-align: center;
+    background: #1f1f1f;
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* About Section */
+#about {
+    padding: 4em 2em;
+    background: linear-gradient(135deg, #1a1a1a, #121212);
+    text-align: center;
+    color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#about h2 {
+    font-size: 2.5em;
+    color: #0d6efd;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+#about p {
+    max-width: 800px;
+    margin: 1em auto;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #cccccc;
+    text-align: justify;
+}
+
+#about p:first-of-type {
+    margin-top: 1.5em;
+}
+
+#about p:last-of-type {
+    margin-bottom: 1.5em;
+}
+
+#about p::first-line {
+    font-weight: bold;
+    color: #ffa500;
+}
+
+#about:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
